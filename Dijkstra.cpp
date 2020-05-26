@@ -5,21 +5,22 @@ class Dijkstra{
     private:
     int N,src,swi,destiny;
     int graph[1000][1000],dist[1000];
-    bool Select[1000];;
+    string path[1000];
+    bool Select[1000];
 
     public:
 
 Dijkstra()
 {
         int i,j;
-        cout<<"Enter No. of junction ,you have in your route=";
+        cout<<"Enter No. of junction ,you have in route=";
         cin>>N;
         cout<<"Enter their distance and the connectivity of road according to the route map:-\n";
         for(i=0;i<N;i++)
             for(j=0;j<N;j++)
             cin>>graph[i][j];
 
-        cout<<"Enter the junction no. ur cuurently present on =";
+        cout<<"Enter the junction no ur on =";
         cin>>src;
 
         cout<<"Press 0:-If u would like know the distance to all node \nPress 1:-Only for a particular node";
@@ -32,7 +33,7 @@ Dijkstra()
         }
 }
     
-int minDistance() 
+int min_dist() 
 { 
     // Initialize min value 
     int min = INT_MAX, min_index; 
@@ -43,15 +44,18 @@ int minDistance()
   
     return min_index; 
 }
-void printone(int destiny)
+void printOne(int destiny)
 {
-    cout<<"\nfrom"<<src<<" to "<<destiny<<" is "<<dist[destiny];
+    cout<<"\nDistance from "<<src<<" to "<<destiny<<" is "<<dist[destiny];
+    cout<<" \npath is"<<path[destiny]+" "+to_string(destiny);
 }
-void printSolution() 
+void printAll() 
 { 
     cout<<"\nVertex   Distance from Source\n"; 
     for (int i = 0; i < N; i++) 
-    cout<<"\nfrom"<<src<<" to "<<i<<" is "<<dist[i];
+    {cout<<"\nDistance from "<<src<<" to "<<i<<" is "<<dist[i];
+    cout<<" \npath is"<<path[i]+" "+to_string(i);
+    }
 } 
 
 void dijkstra() 
@@ -64,23 +68,24 @@ void dijkstra()
   
     for (int count = 0; count < N - 1; count++) { 
   
-        int u = minDistance(); 
-  
+        int u = min_dist(); 
+
         Select[u] = true; 
   
         for (int i = 0; i < N; i++) 
                 if (!Select[i] && graph[u][i] && dist[u] != INT_MAX 
                 && dist[u] + graph[u][i] < dist[i]) 
-                dist[i] = dist[u] + graph[u][i]; 
-    
+                {
+                    dist[i] = dist[u] + graph[u][i];
+                    path[i] = path[u] +" "+ to_string(u);
+                }
     } 
+
     if(swi==0)
-    printSolution();
+    printAll();
     else
-    printone(destiny); 
+    printOne(destiny); 
 }
-
-
 };
 
 int main()
