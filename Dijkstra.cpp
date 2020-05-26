@@ -12,14 +12,14 @@ class Dijkstra{
 Dijkstra()
 {
         int i,j;
-        cout<<"Enter No. of junction ,you have in route=";
+        cout<<"Enter No. of junction ,you have in your route=";
         cin>>N;
         cout<<"Enter their distance and the connectivity of road according to the route map:-\n";
         for(i=0;i<N;i++)
             for(j=0;j<N;j++)
             cin>>graph[i][j];
 
-        cout<<"Enter the junction no ur on =";
+        cout<<"Enter the junction no. ur cuurently present on =";
         cin>>src;
 
         cout<<"Press 0:-If u would like know the distance to all node \nPress 1:-Only for a particular node";
