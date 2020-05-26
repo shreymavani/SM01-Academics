@@ -23,12 +23,12 @@ Dijkstra()
         cout<<"Enter the junction no ur on =";
         cin>>src;
 
-        cout<<"Press 0:-If u would like know the distance to all node \nPress 1:-Only for a particular node";
+        cout<<"Press 0:-To print distance to all node \nPress 1:-To print distance for a particular node";
         cin>>swi;
 
         if(swi!=0)
         {
-            cout<<"Enter no. of node=";
+            cout<<"Enter no. of that particullar node=";
             cin>>destiny;
         }
 }
