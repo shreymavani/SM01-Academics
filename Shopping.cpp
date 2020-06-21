@@ -324,9 +324,9 @@ class inventory{
         {
             if(tmp->item_id==n)
             {
-            cout<<"                            ITEM LIST                     \n\n";
+            cout<<"                            ITEM LIST                     \n";
             cout<<"\nProduct ID       Product Name      Quantity        Rate"<<endl;
-            cout<<" "<<tmp->item_id<<"       "<<tmp->p_name<<"               "<<tmp->quantity<<"            "<<tmp->rate<<endl;                                       
+            cout<<" "<<tmp->item_id<<"       "<<tmp->p_name<<"               "<<tmp->quantity<<"            "<<tmp->rate<<endl<<endl;                                       
                 flag=1;
                 break;
             }
